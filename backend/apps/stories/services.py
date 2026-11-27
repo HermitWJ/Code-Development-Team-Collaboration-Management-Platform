@@ -249,6 +249,7 @@ def sync_branch_commits(project, story, branch_name):
                 "--format=%H%x1f%an%x1f%aI%x1f%s%x1f%b%x1e",
             ],
             capture_output=True, text=True, timeout=30, check=False,
+            encoding="utf-8", errors="replace",
         )
     except (OSError, subprocess.TimeoutExpired):
         raise ApiError(400, "GIT_SYNC_FAILED", "读取本地仓库失败或超时")
@@ -269,6 +270,7 @@ def sync_branch_commits(project, story, branch_name):
         stat = subprocess.run(
             [git, "-C", path, "show", "--shortstat", "--format=", sha.strip()],
             capture_output=True, text=True, timeout=15, check=False,
+            encoding="utf-8", errors="replace",
         )
         if stat.returncode == 0:
             match = SHORTSTAT_PATTERN.search(stat.stdout)
