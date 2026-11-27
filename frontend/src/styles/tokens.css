@@ -1,0 +1,113 @@
+/* 工程控制台 · 设计令牌 v2.1
+   方向：开发者工作台。近黑三层底 + 1px 结构线 + 等宽单号 + 单一低饱和青绿。
+   v2.1：拆出浅色主题；状态主线五态各占一个色相，取消/挂起为旁路态。
+   详见《前端视觉设计调研与设计准则.md》v2.0。 */
+
+:root {
+  /* 近黑三层表面，不是纯黑 */
+  --bg-paper: #0E1116;
+  --bg-surface: #141920;
+  --bg-sunken: #1B222B;
+  --bg-raised: #222B36;
+
+  /* 明度层级代替多色 */
+  --ink: #E6EDF3;
+  --ink-2: #9AA7B4;
+  --ink-3: #6B7885;
+  --line-hair: #232C36;
+  --line-base: #34404D;
+
+  /* 单一强调色：终端青绿 */
+  --accent: #4CC2A1;
+  --accent-strong: #6FE0BE;
+  --accent-ink: #06231B;
+  --accent-soft: rgba(76, 194, 161, 0.12);
+  --signal-warn: #D9A441;
+  --signal-error: #E5786B;
+  --focus: #4CC2A1;
+  --overlay: rgba(4, 7, 10, 0.72);
+
+  /* 状态五色：灰蓝 → 蓝 → 紫 → 琥珀 → 青绿，亮度接近但色相分离 */
+  --status-planning: #93A7BC;
+  --status-developing: #5FA8F5;
+  --status-pending-test: #B98AF0;
+  --status-pending-accept: #E8AF55;
+  --status-released: #4CC2A1;
+  --status-branch: #9A8C80;
+  --status-soft-alpha: 0.16;
+
+  /* 等宽 + 无衬线，没有独立艺术字字体 */
+  --font-ui: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-display: var(--font-ui);
+
+  /* 字阶：后台用 1.2 系数，标题层级只有 3 级 */
+  --fs-display: 36px;  --lh-display: 44px;
+  --fs-h1: 28px;       --lh-h1: 36px;
+  --fs-h2: 20px;       --lh-h2: 28px;
+  --fs-body: 14px;     --lh-body: 22px;
+  --fs-label: 12px;    --lh-label: 18px;
+  --fs-mono: 13px;     --lh-mono: 20px;
+
+  /* 8px 基线 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* 十二列网格 */
+  --cols: 12;
+  --gutter: 24px;
+  --margin: 32px;
+  --baseline: 8px;
+  --maxw: 1400px;
+  --sidebar-w: 224px;
+  --topbar-h: 56px;
+
+  --radius-sm: 2px;
+  --radius-md: 3px;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0, 0, 0, 1);
+  --ease-in: cubic-bezier(0.3, 0, 1, 1);
+  --t-fast: 120ms;
+  --t-hover: 150ms;
+  --t-control: 200ms;
+  --t-panel: 280ms;
+  --t-panel-out: 240ms;
+}
+
+/* 浅色主题：只覆盖颜色令牌，组件样式一律 var(--...)，无需改结构 */
+:root[data-theme="light"] {
+  --bg-paper: #F7F9FB;
+  --bg-surface: #FFFFFF;
+  --bg-sunken: #F1F4F7;
+  --bg-raised: #E9EEF3;
+
+  --ink: #17222E;
+  --ink-2: #516171;
+  --ink-3: #7C8B99;
+  --line-hair: #E3E9EF;
+  --line-base: #C9D4DE;
+
+  --accent: #0E8F72;
+  --accent-strong: #0B735C;
+  --accent-ink: #FFFFFF;
+  --accent-soft: rgba(14, 143, 114, 0.10);
+  --signal-warn: #A97415;
+  --signal-error: #C64636;
+  --focus: #0E8F72;
+  --overlay: rgba(23, 34, 46, 0.42);
+
+  --status-planning: #64748B;
+  --status-developing: #2563A8;
+  --status-pending-test: #7A4BB5;
+  --status-pending-accept: #A86A12;
+  --status-released: #0E8F72;
+  --status-branch: #8A7B70;
+  --status-soft-alpha: 0.12;
+}

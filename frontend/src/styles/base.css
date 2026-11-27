@@ -1,0 +1,139 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* 等宽数字：西文字体排前面，tabular-nums 才生效 */
+.u-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  line-height: var(--lh-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.u-num {
+  font-family: var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.u-label {
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+
+.u-muted {
+  color: var(--ink-2);
+}
+
+.u-right {
+  text-align: right;
+}
+
+/* 无衬线大标题，不用艺术字 */
+.display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.heading-1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.heading-2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-base);
+  border: 3px solid var(--bg-paper);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 992px) {
+  :root {
+    --margin: 24px;
+    --sidebar-w: 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
