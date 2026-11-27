@@ -335,6 +335,8 @@ class CommitListView(TeamContextMixin, APIView):
             rows = rows.filter(story_id=params["story_id"])
         if params.get("branch"):
             rows = rows.filter(branch_name=params["branch"])
+        if params.get("author"):
+            rows = rows.filter(author__icontains=params["author"])
         keyword = (params.get("keyword") or "").strip()
         if keyword:
             rows = rows.filter(
