@@ -140,7 +140,20 @@ async function removeStory(row) {
       <button class="btn btn--primary" @click="createOpen = true">＋ 新建需求单</button>
     </div>
 
-    <StoryTable :team-id="teamId" @reload="reload" @copy="doCopy" @delete="removeStory" />
+    <div v-if="!project.currentProjectId" class="state-block">
+      <div class="state-block__title">还没有选择项目</div>
+      <div class="state-block__desc">
+        需求单按项目隔离，请先在顶部下拉选择项目，或到「团队与项目管理 / 项目管理」创建。
+      </div>
+    </div>
+
+    <StoryTable
+      v-else
+      :team-id="teamId"
+      @reload="reload"
+      @copy="doCopy"
+      @delete="removeStory"
+    />
 
     <div class="page__pager">
       <span class="u-mono">{{ story.total }} 条 · 第 {{ story.page }} / {{ pageCount }} 页</span>
